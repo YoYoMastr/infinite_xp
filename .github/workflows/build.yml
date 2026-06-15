@@ -104,8 +104,8 @@ jobs:
 
 
       - name: Build
-  run: dotnet build -c Release -p:BloonsTD6="../${{ env.BLOONSTD6 }}" "${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj"
-  working-directory: ./
+        run: dotnet build -c Release -p:BloonsTD6="../${{ env.BLOONSTD6 }}" "${{ env.PROJECT_NAME }}/${{ env.PROJECT_NAME }}.csproj"
+        working-directory: ./
 
       - name: Upload Mod DLL
         uses: actions/upload-artifact@v4
