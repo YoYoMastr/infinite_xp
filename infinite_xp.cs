@@ -161,16 +161,18 @@ namespace infinite_xp
 
 
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
+            bool ctrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+
+            if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha0))
             {
                 foreach (string t in towers)
                 {
                     player2.AddTowerXP(t, 2147483647);
-                    player2.GainPlayerXP(2147483647);
                 }
-
-
-
+            }
+            else if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                player2.GainPlayerXP(2147483647);
             }
 
         }
