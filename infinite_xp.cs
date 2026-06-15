@@ -157,25 +157,23 @@ namespace infinite_xp
         };
 
         public override void OnUpdate()
+{
+    bool ctrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+
+    if (player2 == null) return;  // Add this safety check
+
+    if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha0))
+    {
+        foreach (string t in towers)
         {
-
-
-
-            bool ctrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-
-            if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha0))
-            {
-                foreach (string t in towers)
-                {
-                    player2.AddTowerXP(t, 2147483647);
-                }
-            }
-            else if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha9))
-            {
-                player2.GainPlayerXP(2147483647);
-            }
-
+            player2.AddTowerXP(t, 2147483647);
         }
+    }
+    else if (ctrlPressed && Input.GetKeyDown(KeyCode.Alpha9))
+    {
+        player2.GainPlayerXP(2147483647);
+    }
+}
 
         static Btd6Player player2;
 
